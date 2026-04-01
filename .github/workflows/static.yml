@@ -38,7 +38,7 @@ jobs:
           npm install -g staticrypt
 
           # Encrypt index.html with custom template
-          npx staticrypt index.html -p "$STATICRYPT_PASSWORD" --short --template password_template.html --template-title "באיזה תאריך הצעתי לך?"
+          npx staticrypt index.html -p "$STATICRYPT_PASSWORD" --short --template password_template.html
 
           # Move encrypted file to replace original
           mv encrypted/index.html index.html
