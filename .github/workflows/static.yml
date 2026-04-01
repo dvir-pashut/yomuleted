@@ -37,12 +37,13 @@ jobs:
           # Install staticrypt
           npm install -g staticrypt
 
-          # Encrypt index.html -> encrypted/index.html
-          npx staticrypt index.html -p "$STATICRYPT_PASSWORD" --short
+          # Encrypt index.html with custom template
+          npx staticrypt index.html -p "$STATICRYPT_PASSWORD" --short --template password_template.html --template-title "באיזה תאריך הצעתי לך?"
 
           # Move encrypted file to replace original
           mv encrypted/index.html index.html
           rm -rf encrypted
+          rm -f password_template.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
